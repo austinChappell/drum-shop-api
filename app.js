@@ -9,7 +9,7 @@ require('dotenv').config();
 const Item = require('./model/item');
 
 let port = process.env.PORT || 4000;
-const url = 'mongodb://localhost:27017/drum_shop';
+const url = process.env.MONGODB_URI;
 
 mongoose.connect(url, ({ useMongoClient: true }));
 
