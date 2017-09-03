@@ -1,0 +1,21 @@
+body {
+  background: lightgray;
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.single-item {
+  margin: 30px;
+  flex-basis: 35%;
+  background-color: white;
+  border: 2px solid black;
+  padding: 10px 30px;
+}
+
+img {
+  width: 300px;
+}

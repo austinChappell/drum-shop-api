@@ -1,0 +1,55 @@
+<% include partials/_header %>
+
+<form class="" action="/add_inventory" method="POST">
+  <div>
+    <label>Category: </label>
+    <select name="category">
+      <option value="Drums">Drums</option>
+      <option value="Cymbals">Cymbals</option>
+      <option value="Hardware">Hardware</option>
+    </select>
+  </div>
+  <div>
+    <label>Item for Sale: </label>
+    <input type="text" name="name" placeholder="Drum Set, Ride Cymbal, etc." />
+  </div>
+  <div>
+    <label>Brand: </label>
+    <input type="text" name="brand" />
+  </div>
+  <div>
+    <label>Model: </label>
+    <input type="text" name="model"  />
+  </div>
+  <div>
+    <label>Image URL: </label>
+    <input type="text" name="imageUrl" />
+  </div>
+  <div>
+    <label>Price: </label>
+    <input type="number" step="0.01" name="price" />
+  </div>
+  <div>
+    <label>Description: </label>
+    <textarea name="description" rows="8" cols="80"></textarea>
+  </div>
+  <input type="submit" value="Add Inventory" />
+</form>
+
+<section>
+  <div class="results">
+    <% items.forEach((item) => { %>
+      <div class="single-item">
+        <h1><%= item.name %> - <%= item.price %></h1>
+        <h3>Brand: <%= item.brand %></h3>
+        <h4>Model: <%= item.model %></h4>
+        <img src="<%= item.imageUrl %>" alt="<%= item.name %>" />
+        <figcaption>Category: <%= item.category %></figcaption>
+        <p><%= item.description %></p>
+        <a href="/edit_inventory/<%= item._id %>">Edit Item</a>
+      </div>
+    <% }); %>
+  </div>
+</section>
+
+<% include partials/_footer %>
