@@ -16,8 +16,8 @@ mongoose.connect(url, ({ useMongoClient: true }));
 app.set('view engine', 'ejs');
 
 app.use(function(req, res, next) {
-  var origin = 'http://localhost:3000/';
-  res.setHeader('Access-Control-Allow-Origin', origin);
+  var origin = 'http://localhost:3000';
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.header('Access-Control-Allow-Credentials', true);
